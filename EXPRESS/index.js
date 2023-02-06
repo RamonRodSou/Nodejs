@@ -1,3 +1,6 @@
+// Trabalhando com Rotas no EXPRESS Definindo direto na Rota
+
+
 const express = require ("express") //Importando o Express
 const app = express(); // Iniciando o express
 
@@ -53,6 +56,24 @@ app.get ("/doc/:artigo?" , function(req, res){
         }
 })
 
+
+app.get ("/canal", function(req, res){
+    
+    // Trabalhando com o Parametro " Query", ele é totalmente aberto, livre, dinamicos e opcionais
+    // esta meio que entrando em des-uso 
+
+    var canal = req.query["canal"];
+
+    if(canal){
+
+        res.send(canal);
+    }
+
+    else {
+
+        res.send ("Nenhum canal fornecido!");
+    }
+})
 
 app.listen(4000, function(erro){ // Direcionando a porta ( localhost:4000)
  
